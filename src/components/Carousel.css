@@ -1,5 +1,5 @@
 .carousel-container {
-    width: 50%;
+    width: 1240px;
     margin: 0 auto;
     padding-top: 50px;
     margin-top: 150px;
@@ -11,13 +11,7 @@
     border-radius: 8px;
 }
 
-.carousel-container h3 {
-    text-align: center;
-    font-size: 1.5rem;
-    color: #333;
-    margin-top: 15px;
-    font-weight: bold;
-}
+
 
 .slick-prev,
 .slick-next {
@@ -41,6 +35,7 @@
     color: #999;
     font-size: 12px;
 }
+
 
 .slick-dots li.slick-active button:before {
     color: #333;

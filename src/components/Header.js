@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "../contexts/SidebarContext";
 import { CartContext } from "../contexts/CartContext";
 import { Link } from "react-router-dom";
-import Logo from "../img/logo.svg";
+import Logo from "../img/logo-greenleaf.png";
 import { BsBag } from "react-icons/bs";
 
 const Header = () => {
@@ -21,45 +21,52 @@ const Header = () => {
   return (
     <header
       className={`${isActive ? "bg-white py-4 shadow-md" : "bg-none py-6"
-        } fixed w-full z-10 lg:px-8 transition-all`}
+        } fixed w-full z-10 transition-all duration-300 lg:px-8`}
     >
-
-      <div className="container mx-auto flex items-center justify-between h-full">
+      <div className="container mx-auto flex items-center justify-between h-full header-img">
+        {/* Logo */}
         <Link to={"/"}>
-          <div className="w-[40px]">
-            <img src={Logo} alt="" />
+          <div className="w-[200px]">
+            <img src={Logo} alt="Green Life Logo" />
           </div>
         </Link>
-        <div className="header-center">
-          <Link to={"About"}>
-            <h4>biz haqimizda</h4>
-          </Link>
-          <Link to={"Sozlamalar"}>
-            <h4>sozlamalar</h4>
-          </Link>
-          <Link to={"Royxatdan_otish"}>
-            <h4>royxatdan otish</h4>
-          </Link>
-          <Link to={"Operator"}>
-            <h4>Operator</h4>
-          </Link>
 
-
-
-
+        {/* Navigation Links */}
+        <div className="hidden md:flex gap-8">
+          <Link to={"About"} className="text-sm md:text-base font-semibold hover:text-primary">
+            Biz Haqimizda
+          </Link>
+          <Link to={"Sozlamalar"} className="text-sm md:text-base font-semibold hover:text-primary">
+            Sozlamalar
+          </Link>
+          <Link to={"Operator"} className="text-sm md:text-base font-semibold hover:text-primary">
+            Operator
+          </Link>
         </div>
 
-        {/* cart */}
+        {/* Cart Icon */}
         <div
           onClick={() => setIsOpen(!isOpen)}
           className="cursor-pointer flex relative"
         >
-
           <BsBag className="text-2xl" />
           <div className="bg-red-500 absolute -right-2 -bottom-2 text-[12px] w-[18px] h-[18px] text-white rounded-full flex justify-center items-center">
             {itemAmount}
           </div>
         </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className="md:hidden flex justify-between px-6 py-3">
+        <Link to={"About"} className="text-sm font-semibold hover:text-primary">
+          Biz Haqimizda
+        </Link>
+        <Link to={"Sozlamalar"} className="text-sm font-semibold hover:text-primary">
+          Sozlamalar
+        </Link>
+        <Link to={"Operator"} className="text-sm font-semibold hover:text-primary">
+          Operator
+        </Link>
       </div>
     </header>
   );

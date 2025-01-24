@@ -2,39 +2,141 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "./Carousel.css";
 
 const PerfumeCarousel = () => {
     const settings = {
         dots: true,
         infinite: true,
         speed: 500,
-        slidesToShow: 1,
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
+        responsive: [
+            {
+                breakpoint: 768,
+                settings: {
+                    slidesToShow: 1,
+                },
+            },
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                },
+            },
+        ],
     };
 
     return (
         <div className="carousel-container">
             <Slider {...settings}>
-                <div>
-                    <img src="https://static.wixstatic.com/media/11062b_f8226687e5fd4210be6c0c90739bd44f~mv2.jpg/v1/crop/x_0,y_497,w_5000,h_2587/fill/w_560,h_346,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_f8226687e5fd4210be6c0c90739bd44f~mv2.jpg" alt="Perfume 1" />
-                    <h3>Perfume Name 1</h3>
+                <div className="carousel-item">
+                    <img
+                        src="https://green-leaf.uz/wp-content/uploads/slide.jpg"
+                        alt="Green Life 1"
+                    />
                 </div>
-                <div>
-                    <img src="https://imfirenzedigest.com/wp-content/uploads/2024/08/gemstones-in-perfumery-olivier-durbano.jpg.webp" alt="Perfume 2" />
-                    <h3>Perfume Name 2</h3>
+                <div className="carousel-item">
+                    <img
+                        src="https://green-leaf.uz/wp-content/uploads/slide3.jpg"
+                        alt="Green Life 2"
+                    />
                 </div>
-                <div>
-                    <img src="https://hoshigato.com/cdn/shop/files/AdobeStock_176349904.jpg?v=1720386463&width=1946" alt="Perfume 3" />
-                    <h3>Perfume Name 3</h3>
+                <div className="carousel-item">
+                    <img
+                        src="https://green-leaf.uz/wp-content/uploads/slide4.jpg"
+                        alt="Green Life 3"
+                    />
                 </div>
-                <div>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRh2gEcX56mVKiXQmvEL7_MuWr86jvgA7b69w&s" alt="Perfume 4" />
-                    <h3>Perfume Name 4</h3>
+                <div className="carousel-item">
+                    <img
+                        src="https://green-leaf.uz/wp-content/uploads/slide2.jpg"
+                        alt="Green Life 4"
+                    />
                 </div>
             </Slider>
+
+            <div className="video-container">
+                <h2>Watch Our Video</h2>
+                <div className="embed-responsive">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/TFFrw6XLmPw?si=OdbOTFs0pWsSeDDN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                
+                
+            </div>
+
+            <style jsx>{`
+                .carousel-container {
+                    margin: 20px;
+                    margin-top: 150px;
+                }
+
+                .carousel-item {
+                    position: relative;
+                    text-align: center;
+                }
+
+                .carousel-item img {
+                    width: 1240px;
+                    height: 350px;
+                    object-fit: cover;
+                    border-radius: 10px;
+                }
+
+                .slick-prev,
+                .slick-next {
+                    z-index: 2;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    font-size: 0;
+                }
+
+                .slick-prev {
+                    left: 10px;
+                }
+
+                .slick-next {
+                    right: 10px;
+                }
+
+                .slick-prev:before,
+                .slick-next:before {
+                    font-size: 24px;
+                    color: #2e8b57;
+                }
+
+                .slick-prev:before {
+                    content: "←";
+                }
+
+                .slick-next:before {
+                    content: "→";
+                }
+
+                .video-container {
+                    margin-top: 40px;
+                    text-align: center;
+                }
+
+                .embed-responsive {
+                    position: relative;
+                    padding-bottom: 56.25%;
+                    height: 0;
+                    overflow: hidden;
+                    max-width: 100%;
+                    background: #000;
+                }
+
+                .embed-responsive iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            `}</style>
         </div>
     );
 };
