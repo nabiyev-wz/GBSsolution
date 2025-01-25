@@ -12,6 +12,7 @@ import About from "./components/About";
 import Kontakt from "./components/Kontakt";
 import Operator from "./components/Operator";
 import Settings from "./components/Sozlamalar";
+import Loved from "./components/Loved";
 
 
 
@@ -30,6 +31,7 @@ const App = () => {
           <Route path='Sozlamalar' element={<Settings />}></Route>
         </Routes>
         <Sidebar />
+        <Loved />
         <Footer />
       </Router>
     </div>
